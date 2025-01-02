@@ -3,6 +3,8 @@ using namespace std;
 
 int BinarySearch(int arr[], int size, int key)
 {
+    // Time complexity: O(log n), where n is the number of elements in the array.
+    // Space complexity: O(1) for iterative version.
     int start = 0;
     int end = size - 1;
     int mid = start + (end - start) / 2;
