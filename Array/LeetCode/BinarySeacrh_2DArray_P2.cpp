@@ -7,33 +7,29 @@ class Solution
 public:
     bool searchMatrix(vector<vector<int>> &matrix, int target)
     {
-        // Time Complexity : O(log row * col)
         int row = matrix.size();
         int col = matrix[0].size();
 
-        int start = 0;
-        int end = row * col - 1;
-        int mid = start + (end - start) / 2;
+        int rowIndex = 0;
+        int colIndex = col - 1;
 
-        while (start <= end)
+        while (rowIndex < row && colIndex >= 0)
         {
-            int element = matrix[mid / col][mid % col];
+            int element = matrix[rowIndex][colIndex];
             if (element == target)
             {
-                return true;
+                return 1;
             }
 
             if (element < target)
             {
-                start = mid + 1;
+                rowIndex++;
             }
             else
             {
-                end = mid - 1;
+                colIndex--;
             }
-            mid = start + (end - start) / 2;
         }
-
         return false;
     }
 };
